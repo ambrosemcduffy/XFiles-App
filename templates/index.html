@@ -1,0 +1,30 @@
+</html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>X-files Script Creator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+  <body>
+    <h1><img class "one" src="static/images/x_files.png"></h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <br>
+    <div id="paragraph_section">
+        <p id="p_top">This website lets you generate cool X-files scripts using AI.</p>
+        <p id="p_mid">The AI model is an Machine Learning Model called <span>LSTM.</span></p>
+        <p id="p_buttom" class="bold_font">Generate a script Below!</p>
+    </div>
+    <div>
+        <form action="/index" method="post">
+            {{ form.csrf_token() }}
+            {{ form.title }}
+            {{ form.submit }}
+        </form>
+    {% if title %}
+        <hr>
+        <p>{{ data|safe }}</p>
+    {% endif %}
+    </div>
+  </body>
+</html>
